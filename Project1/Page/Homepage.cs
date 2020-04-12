@@ -10,7 +10,7 @@ namespace Project1.Page
     class Homepage
     {
 
-        public void NavigatetoTMpage(IWebDriver driver)
+        public void Navigatetocustomerpage(IWebDriver driver)
         {
 
             //validate user is loggen in

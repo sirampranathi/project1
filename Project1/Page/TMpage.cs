@@ -28,19 +28,20 @@ namespace Project1.Page
             //enter description
             driver.FindElement(By.Id("Description")).SendKeys("Soft");
 
-            //enter price
-            driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[4]/div/span[1]/span/input[1]"));
-            driver.FindElement(By.XPath("//*[@id='Price']")).SendKeys("10");
-
+           
             //click save
             driver.FindElement(By.Id("SaveButton")).Click();
 
-            // valida            
-            // go to last page
-            // select the last record and validate the edited valuetions
-
-
-        }
+            // validate
+            if(driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last]/td[1]")).Text=="ABC")
+            {
+                Console.WriteLine("TM created");
+             }
+            else
+            {
+                Console.WriteLine("TM not created");
+            }
+              }
 
 
         public void EditTM(IWebDriver driver)
@@ -83,6 +84,9 @@ namespace Project1.Page
         {
 
             // go to last page
+            driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[1]")).Click();
+
+
 
             Thread.Sleep(2000);
             // identify the record created or the last record
