@@ -58,11 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="helper\Commondriver.cs" />
+    <Compile Include="Page\Customerpage.cs" />
     <Compile Include="Page\Homepage.cs" />
     <Compile Include="Page\Loginpage.cs" />
     <Compile Include="Page\TMpage.cs" />
     <Compile Include="Test\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\TMTestSuite.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

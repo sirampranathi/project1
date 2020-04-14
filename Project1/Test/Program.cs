@@ -8,59 +8,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace Project1
-{
-    [TestFixture]
-    class Program
+{   [TestFixture, Description("validate collection of TM ")]
+    class TMtestsuite : Commondriver
     {
-
-        static void Main(string[] args)
+        // comment added to branch
+      static void Main(string[] args)
         {
 
         }
-                   
-        [SetUp]
-        public void Testsetup()
-        {
-            //define driver
-            Commondriver.driver = new ChromeDriver();
-
-            //loginpage object
-            Loginpage loginobj = new Loginpage();
-            loginobj.loginsteps(Commondriver.driver);
-
-            //homepage object
-            Homepage homeobj = new Homepage();
-            homeobj.NavigatetoTMpage(Commondriver.driver);
-        }
-
-        [Test]
+        [Test, Description("validate create new TM")]
         public void Testcreate()
         {
-            //tmpage object
+            //TMpage object
             TMpage TMobj = new TMpage();
-            TMobj.CreateTM(Commondriver.driver);
+            TMobj.CreateTM(driver);
         }
-        [Test]
+        [Test, Description("validate edit TM")]
         public void TestEdit()
         {
             TMpage TMobj = new TMpage();
-            TMobj.EditTM(Commondriver.driver);
+            TMobj.EditTM(driver);
         }
-        [Test]
+        [Test, Description("validate delete a TM")]
         public void TestDelete()
         {
             TMpage TMobj = new TMpage();
-            TMobj.DeleteTM(Commondriver.driver);
+            TMobj.DeleteTM(driver);
         }
-        [TearDown]
-        public void Testteardown()
+    } 
+}
+
+    [TestFixture,Description("Validate collection of customer")]
+    class Customertestsuite : Commondriver
+   
+    {
+        [Test,Description("validate create new customer")]
+        public void Testcreate()
         {
-            Commondriver.driver.Quit();
+            //customerpage object
+            Customerpage custobj = new Customerpage();
+            custobj.Createcustomer(driver);
+        }
+        [Test,Description("validate edit acustomer")]
+        public void TestEdit()
+        {
+            Customerpage custobj = new Customerpage();
+            custobj.Editcustomer(driver);
+        }
+        [Test,Description("validate delete a customer")]
+        public void TestDelete()
+        {
+            Customerpage custobj = new Customerpage();
+            custobj.Deletecustomer(driver);
         }
     }
-}
+
+
+
+
+
  
-    
+
 
